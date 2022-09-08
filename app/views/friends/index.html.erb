@@ -1,0 +1,56 @@
+<!-- <p style="color: green"><%#= notice %></p> -->
+<!-- <h1>Friends</h1> -->
+<% if user_signed_in? %>
+  <table class="table table-striped table-bordered table-hover mt-5">
+    <thead class="table-dark">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Twitter</th>
+        <!--<th>User Id</th>
+        <th colspan="2"></th>-->
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @friends.each do |friend| %>
+        <% if friend.user == current_user %>
+          <% full_name = friend.first_name + " " + friend.last_name %>
+          <tr>
+            <td><%= link_to "🔍 View - #{full_name}", friend, 
+                    class: "btn btn-sm btn-outline-dark" %></td>
+            <td><%= friend.email %></td>
+            <td><%= friend.phone %></td>
+            <td><%= friend.twitter %></td>
+            <!--<td><%= friend.user_id %></td>
+            <td><%#= link_to '👻 Delete', friend, 
+                            class: "btn btn-sm btn-outline-danger", 
+                            data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+            </td>
+            <td><%#= link_to '✏️ Edit', edit_friend_path(friend), class: "btn btn-sm btn-outline-secondary" %></td>
+            -->
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+
+    
+  <%
+=begin%>
+ <div id="friends">
+    <% @friends.each do |friend| %>
+      <%= render friend %>
+      <p>
+        <%= link_to "Show this friend", friend %>
+      </p>
+    <% end %>
+  </div>  
+<%
+=end%>
+
+
+  <%= link_to "Add New Friend", new_friend_path, class: "btn btn-secondary" %> 
+<% end %>
