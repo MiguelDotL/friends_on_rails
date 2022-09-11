@@ -8,7 +8,6 @@ gem 'jbuilder' # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem 'puma', '~> 5.0' # Use the Puma web server [https://github.com/puma/puma]
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1' # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'sprockets-rails' # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem 'sqlite3', '~> 1.4' # Use sqlite3 as the database for Active Record
 gem 'stimulus-rails' # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem 'turbo-rails' # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
 
@@ -32,6 +31,7 @@ end
 
 group :development do
   gem 'solargraph'
+  gem 'sqlite3', '~> 1.4' # Use sqlite3 as the database for Active Record
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem 'web-console'
 
